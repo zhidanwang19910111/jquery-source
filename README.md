@@ -2,13 +2,27 @@
 
 > 用来做外部链接 ，[参考此文](https://github.com/songjinzhong/JQuerySource)
 
-#### 三级标题就用这个符号
-
-#### 分割线用---，我们来试一下
-
 ---
 
-## 这个是二级标题，并带下划线，是是是
+## 项目名称：
+	jquery-source
 
-   这个学习的目的就是要分析jquery 源码
+## 项目目的：
+	这个学习的目的就是要分析jquery 源码
+
+## 为什么会有这个想法：
+	想要提高自己的js水平
+## Requirements
+	```jquery 1``` 库
+
+## usage
+	download
+
+---
+#### 以下方式联系我
+
+- qq ：1107247128
+- 博客园： 
+- blog：
+  
 
