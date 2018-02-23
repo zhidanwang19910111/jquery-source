@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>无标题文档</title>
+	<style>
+		li{
+			margin-top:5px;
+		}
+		a{
+			margin-left: 20px;
+		}
+	</style>
+	<body>
+		<ul id="type">
+			
+		</ul>
+	</body>
+	<script src="../js/dan.js"></script>
+	<script>
+		/*
+		1.根据数据结构生成html
+		*/
+		var crumbDate = [
+			{
+				title: '品牌',
+				data: ['苹果','小米','锤子','魅族','华为','三星','oppo','vivo','乐视']
+			},
+			{
+				title: '尺寸',
+				data: ['4.0-4.5英寸','4.6-4.9英寸','5.0-5.5英寸','6.0以上']
+			},
+			{
+				title: '系统',
+				data: ['android','ios','windows','无','其他']
+			},
+			{
+				title: '网络',
+				data: ['联通3G','双卡单4G','双卡双4g','联通4g']
+			}
+		]
+
+		var type = $('type');
+		var len = crumbDate.length;
+
+		var newLi = null;
+		var newSpan = null;
+		var newA = null;
+		for(var i=0;i<len;i++){
+			newLi = document.createElement('li');
+
+			newSpan = document.createElement('span');
+			newSpan.innerHTML = crumbDate[i].title;
+			newLi.appendChild(newSpan);
+
+
+			for(var j=0;j<crumbDate[i].data.length;j++){
+				newA = document.createElement('a');
+				newA.href = 'javascript:;';
+				newA.innerHTML = crumbDate[i].data[j];
+				newLi.appendChild(newA);
+			}
+			type.appendChild(newLi);
+			
+		}
+
+		/*
+			绑定事件
+		*/
+		var lis = type.children;
+		var tagA = null;
+		// var prev = null;
+		for(var k=0;k<lis.length;k++){
+			lis[k].prev = null;
+			lis[k].index = k;
+			tagA = lis[k].getElementsByTagName('a');
+
+			for(var m=0;m<tagA.length;m++){
+				tagA[m].onclick = function(){
+
+					var parent = this.parentNode;
+					//去掉之前点击a 标签的color
+
+					if(parent.prev){
+						parent.prev.style.color = ''
+					}
+					this.style.color = 'red';
+					parent.prev = this;
+				}
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+	</script>
+</html>
