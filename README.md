@@ -2,6 +2,7 @@
 
 - 用来做外部链接 ，[参考此文](https://github.com/songjinzhong/JQuerySource)
 - 推荐一个在线查询的jqery神器 https://j11y.io/jquery/#v=1.11.2
+- 历史版本的cdn http://www.bootcdn.cn/jquery/
 
 ---
 
