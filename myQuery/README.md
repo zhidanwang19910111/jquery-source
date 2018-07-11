@@ -4,9 +4,12 @@
 
   1.匿名函数自执行,保证变量不会污染
 
-	(function(){
+	(function(window, undefined){
 		code....
 	})(window)
+
+	传参数 window 原因： 一方面局部变量查找速度会变快，另一方面压缩时候不会出错
+		undefined: 在某些浏览器可以对 undefined 修改，为了防止其他人修改所以传了一个undefined;
 
   2.这样虽让不会变量污染，但是如何对外暴露接口比如 $方法等;最简单的方法就是将暴露的接口暴露在window下
 
