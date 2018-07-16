@@ -1,4 +1,4 @@
-# 整体结构
+
 ```bash
 
   这个章节主要分析一下jQuery.fn = jQuery.prototype = { code... }

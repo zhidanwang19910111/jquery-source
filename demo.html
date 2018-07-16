@@ -16,12 +16,24 @@
     <script src="./1.frame-theory/myQuerty.js"></script>
     <script src="jquery-3.3.1.js"></script>
 	<script type="text/javascript">
-		var arr = ['a', 'b', 'c'];
-    	/*$.each(arr, function(a,b,c){
-    		console.log(a,b,c)
-    	})*/
-    	// $.makeArray({"name": "wang"})
-    	console.log($.now())
+		var cb = jQuery.Callbacks();
 
+		function aaa() {
+			alert(1111)
+		}
+		function bbb() {
+			alert(22222)
+		}
+		/*cb.add(aaa)
+		cb.add(bbb)
+		cb.fire()*/
+		var arr = [];
+		arr.push(aaa);
+		arr.push(bbb);
+		var i = 0;
+
+		for( ;i< arr.length;i++){
+			arr[i]()
+		} 
     </script>
 </html>
