@@ -184,6 +184,47 @@
             first[ i++ ] = second[ j++ ];
           }
 
+      11.grep 使用 $.grep(obj, callback, inv) ,可以遍历数组，可以遍历 类数组，还可以遍历jquery对象
+
+        原理是：
+          遍历obj
+            for( ;i<obj.length;i++ ){
+              retVal = callback(obj[i],i)
+
+              //inv 默认为null 或者undefined 
+
+              if(!!inv !== retVal){
+                ret.push(arr[i])
+              }
+            }
+
+
+      12.map 使用： 用于遍历数组，jquey对象，类数组，
+
+        原理是
+            array-like
+              for ( ; i < length; i++ ) {
+                value = callback( elems[ i ], i, arg );
+
+                if ( value != null ) {
+                  ret[ ret.length ] = value;
+                }
+              }
+
+          Object 
+            for ( i in elems ) {
+              value = callback( elems[ i ], i, arg );
+
+              if ( value != null ) {
+                ret[ ret.length ] = value;
+              }
+            }
+
+        这个与 each方法类似，只是这个是可以修改数组的值，最终返回一个新数组
+
+        return core_concat.apply( [], ret ); 这个是为了出现[[1],[2]]这种情况 转化为 [1,2]合并多个数组为一个数组
+
+
 
 
       
