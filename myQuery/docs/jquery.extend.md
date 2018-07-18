@@ -131,6 +131,61 @@
     }
     return true;
 
+    7.parseHTML
+    这个留到以后再讲
+
+    8.each jquer.each(obj, callback(index,item){})
+
+    原理是 判断obj 是不是一个array-like ,
+      如果是
+        for(i=0;i<obj.length;i++){
+          val = callback.call(obj[i],i,obj[i])
+        }
+      如果不是
+        for(i in obj){
+          val = callback.call(obj[i],i,obj[i]);
+        }
+
+    9.makeArray  $.makeArray(obj)  ,这个工具方法的作用是把array-like ，变成一个真正的数组，已使用数组的方法
+
+      一般情况下可以用Array.prototype.slice.call(obj)将一个类数组变成一个真正的数组
+      原理是 判断obj 是不是一个array-like ,
+
+        如果是
+        jquery.merge(obj,
+          typeof arr === "string" ?
+          [ arr ] : arr
+        )
+      如果不是
+        [].push.call([], obj)
+
+    10.merge  这个方法内部用到特别多, 用法 $.merge(first, second)，最终把第二个参数合并到第一个参数上去
+
+      首先定义需要合并的两个参数的长度
+        l = second.length;
+        i = first.length;
+        j = 0;
+
+        判断 第二个参数是否有length这个属性, 并且为number类型
+
+        if(typeof l === 'number'){
+
+            遍历第二个参数
+
+          for(;j<l;j++){
+            最后合并到第一个参数上去
+            first[i++] = second[j]
+          }
+
+        }
+
+        如果第二个参数没有length或者 不是number类型
+          while ( second[j] !== undefined ) {
+            first[ i++ ] = second[ j++ ];
+          }
+
+
+
       
 
 

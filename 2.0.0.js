@@ -603,7 +603,6 @@ jQuery.extend({
 				}
 			}
 		}
-
 		return obj;
 	},
 
